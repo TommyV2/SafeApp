@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  nginx:
+    image: chaberb/nginx-ssl
+    logging:
+      driver: none
+    depends_on:
+      - main
+    ports:
+      - "443:443"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html
+      - ./nginx-uwsgi.conf:/etc/nginx/nginx.conf
+
+  main:
+    build: .
+    environment:
+      - PREFIX=/main
+    depends_on:
+      - redis
+    volumes:
+      - ./app:/var/www/app
+
+  redis:
+    image: redis
+    logging:
+      driver: none
