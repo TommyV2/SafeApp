@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  	<title>SafeApp</title>
+  	<meta charset="utf-8">
+  	<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+	<link href='https://fonts.googleapis.com/css?family=Cambay&subset=latin,latin-ext' rel='stylesheet' type='text/css'>	
+    </head>
+<body>	
+	<header>
+	<h2>
+		SafeApp
+	    </h2>
+	<p> </p>
+	</header>
+	<nav>
+	    <ul>
+        	<li><a href="/main">Home</a></li>
+        	<li><a href="/register">Registration</a></li>
+			<li><a href="/passwords">My passwords</a></li>
+			<li><a href="/{{method}}">{{msg}}</a></li>
+        </ul>
+	</nav>
+	<article>   
+        <h3> 
+		Czym jest SafeApp?
+	    </h3>
+        <p>
+		Na tej stronie możesz bezpiecznie przechowywać swoje hasła ;)		
+	    </p> 
+            
+			
+	</article> 
+		
+	
+
+	</body>  
+</html>

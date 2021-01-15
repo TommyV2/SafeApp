@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>SafeApp</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+ </head>
+ <header>
+	<h2>
+		Add password
+	    </h2>
+	<p> </p>
+	</header>
+	<nav>
+	    <ul>
+        	<li><a href="/main">Home</a></li>
+        	<li><a href="/register">Registration</a></li>
+			<li><a href="/passwords">My passwords</a></li>
+        </ul>
+	</nav>
+ <body>
+    <div class="login-box">
+	<div class="login-header">Add password</div>   
+     <form id="registration-form" class="registration-form" action="{{ url_for('add') }}" method="post" autocomplete="off"> 
+	    <input type="hidden" name="csrf_token" value="{{csrf_token()}}" />         
+		<label for="service_name" class="register-label">Service Name</label>   
+        <div class="input-group">
+         <input type="text" class="form-control" name="service_name" id="service_name" pattern ="[!-&a-z?-Z.-:-]+" required  placeholder="Enter service name"/>
+        </div>
+		
+		<label for="password" class="register-label">Password</label>   
+        <div class="input-group">
+         <input type="password" class="form-control" name="password" id="password" pattern ="[!-&a-z?-Z.-:-]+" required  placeholder="Enter password"/>
+        </div>
+			
+       <input type="submit" value="Add" id="form-control btn btn-primary" class="form-control btn btn-primary" name="">
+       <p style="padding:5px;">
+       <div class="{{type}}" id="msg">{{ msg }}</div>     
+ 
+       
+     </form>
+	 </div>
+
+ </body>
+</html>
